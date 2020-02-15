@@ -28,14 +28,14 @@ for now it could be considered as a starting point.
 
 Development is expected to be going in separated branches using the GitFlow strategy. 
 
-### Feature 1 - not started
+### Feature 1 - in progress
 
 Create a new multi-module Apache Maven project with the following modules:
 
-* banking-users
-* banking-accounts
-* banking-cards
-* banking-transactions
+* banking-users - done
+* banking-accounts - done
+* banking-cards - done
+* banking-transactions - in progress
 
 ### Feature 2 - not started
 
