@@ -17,31 +17,48 @@ and amount of money left. Again, all the necessary information is exposed by thi
 3. **Cards management** - a few cards could be associated with every account. Every card has the
 following properties: card holder name, card number, validity date, secret code.  
 
+4. **Transactions management** - it's possible to withdraw and add money using transactions. It's 
+better having these transactions asynchronous, so, there will be a module that will use other
+modules to process the data. 
+
 ## Tasks and statutes
 
-| Task no    | Task description                               | Task status                |
-| -----------|------------------------------------------------| ---------------------------|
-| Feature 1  | Create a new multi-module Apache Maven project | Not started                |
-|            | with the following modules:                    |                            |
-|            | * banking-users                                |                            |
-|            | * banking-accounts                             |                            |
-|            | * banking-cards                                |                            |
-|------------|------------------------------------------------|----------------------------|
-| Feature 2  | Create a new Spring Boot project for every     | Not started                |
-|            | module.                                        | DTO - not started          |
-|            | Every Spring Project should have a collection  | REST - not started         |
-|            | of DTOs to describe the domain entities,       | Swagger - not started      |
-|            | REST endpoints to provide some data externally |                            |
-|            | and Swagger to describe the external API       |                            |
-|------------|------------------------------------------------|----------------------------|
-| Feature 3  | Unit tests that test particular classes with   | Not started                |
-|            | isolated dependencies.                         |                            |
-|------------|------------------------------------------------|----------------------------|
-| Feature 4  | Spring-based JPA integration test. Will mock   |                            |
-|            | the downside dependency
+### Feature 1 - not started
 
+Create a new multi-module Apache Maven project with the following modules:
 
-Example Title | Example Description | Status
---------------|---------------------|-------
-Maven repo    | Create a basic maven repository with three modules:
-                1. Account
+* banking-users
+* banking-accounts
+* banking-cards
+* banking-transactions
+
+### Feature 2 - not started
+
+Create a new Spring Boot project for every module. Every Spring Project should have a collection
+of DTOs to describe the domain entities, REST endpoints to provide some data externally,
+and Swagger to describe the external API.
+
+* DTO - not started
+* REST - not started
+* Swagger - not started
+                                      
+### Feature 3 - not started
+
+Unit tests that test particular classes with isolated dependencies.
+
+### Feature 4 - not started
+
+* Spring-based JPA integration test. In this context it's necessary to show that
+every service has its own database and in order to test code without dependencty
+to the particular database instance it's possible using the in-memory database or 
+mock this layer completely.
+
+* Specifying a contract between microservices using Spring Cloud Contract. This contract should
+be separated to its own maven module and should be used as a separated dependency to test if
+services that use this particular service could consume the contract. 
+
+* Just an idea right now - generate something based on this contract, for example, REST API and 
+test it. 
+
+* Just an idea right now - generate something based on this contract that consumes this contract
+in asynchronous way, for example, something that will use a message queue to process data.  
