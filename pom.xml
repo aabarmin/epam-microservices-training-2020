@@ -14,5 +14,6 @@
 
   <modules>
     <module>banking-users</module>
+    <module>banking-accounts</module>
   </modules>
 </project>

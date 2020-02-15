@@ -1,4 +1,4 @@
-package com.epam.training.microservices.testing.banking.users.entity;
+package com.epam.training.microservices.banking.users.entity;
 
 import lombok.Data;
 import org.hibernate.annotations.Type;
