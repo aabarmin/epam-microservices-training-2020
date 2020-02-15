@@ -23,6 +23,11 @@ modules to process the data.
 
 ## Tasks and statutes
 
+This list of features is not completed, I assume it'll be updated during the development but
+for now it could be considered as a starting point. 
+
+Development is expected to be going in separated branches using the GitFlow strategy. 
+
 ### Feature 1 - not started
 
 Create a new multi-module Apache Maven project with the following modules:
@@ -61,4 +66,20 @@ services that use this particular service could consume the contract.
 test it. 
 
 * Just an idea right now - generate something based on this contract that consumes this contract
-in asynchronous way, for example, something that will use a message queue to process data.  
+in asynchronous way, for example, something that will use a message queue to process data.
+
+### Feature 5 - not started
+
+It will be an end-to-end test that is described using Gherkin language and ran using Cucumber. 
+In this particular case the one single service will be checked using this test, all other services
+will be mocked using described contracts. 
+
+### Feature 6 - not started
+
+* First part of this feature is to build all service and pack them into docker containers. More
+likely it'll be necessary having some infrastructure to deal with it - Docker Registry to store
+images and `docker-compose.yml` to deploy everything at once. 
+
+* End-to-end test for the whole system. Looks quite simple but it's better running these tests
+not only from the local environment but also from the CI. 
+  
