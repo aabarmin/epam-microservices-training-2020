@@ -87,7 +87,7 @@ images and `docker-compose.yml` to deploy everything at once.
 * End-to-end test for the whole system. Looks quite simple but it's better running these tests
 not only from the local environment but also from the CI. 
 
-### Feature 6 - in progress
+### Feature 6 - done
 
 Configure GitHub Actions to run all the necessary steps automatically every commit. 
   
