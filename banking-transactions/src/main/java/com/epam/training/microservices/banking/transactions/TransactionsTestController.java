@@ -3,6 +3,7 @@ package com.epam.training.microservices.banking.transactions;
 import com.epam.training.microservices.banking.transactions.service.TransactionService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -12,8 +13,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class TransactionsTestController {
   private final TransactionService transactionService;
 
-  @GetMapping("")
-  public void test() {
-    transactionService.withdraw(1L, 100L);
+  @GetMapping("/transfer/{accountFromId}/{accountToId}/amount")
+  public void transfer(@PathVariable("accountFromId") Long accountFromId,
+                       @PathVariable("accountToId") Long accountToId,
+                       @PathVariable("amount") Long amount) {
+
+    transactionService.transfer(accountFromId, accountToId, amount);
   }
 }
