@@ -35,21 +35,25 @@ Create a new multi-module Apache Maven project with the following modules:
 * banking-users - done
 * banking-accounts - done
 * banking-cards - done
-* banking-transactions - in progress
+* banking-transactions - in progress, transaction logging hasn't been implemented yet
 
-### Feature 2 - not started
+### Feature 2 - done
 
 Create a new Spring Boot project for every module. Every Spring Project should have a collection
 of DTOs to describe the domain entities, REST endpoints to provide some data externally,
 and Swagger to describe the external API.
 
-* DTO - not started
-* REST - not started
-* Swagger - not started
+* DTO - done
+* REST - done
+* Swagger - HAL Explorer instead of Swagger
                                       
-### Feature 3 - not started
+### Feature 3 - done
 
 Unit tests that test particular classes with isolated dependencies.
+
+The following unit tests were implemented:
+
+* `TaxCalculator` to calculate amount with defined tax. 
 
 ### Feature 4 - not started
 
