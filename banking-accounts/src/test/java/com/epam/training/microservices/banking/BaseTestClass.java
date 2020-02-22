@@ -1,4 +1,4 @@
-package com.epam.training.microservices.banking.accounts;
+package com.epam.training.microservices.banking;
 
 import com.epam.training.microservices.banking.accounts.repository.AccountRepository;
 import io.restassured.module.mockmvc.RestAssuredMockMvc;
@@ -15,7 +15,7 @@ import org.springframework.web.context.WebApplicationContext;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.MOCK)
 @DirtiesContext
 @AutoConfigureMessageVerifier
-class BaseTestClass {
+public class BaseTestClass {
   @Autowired
   private AccountRepository accountRepository;
 

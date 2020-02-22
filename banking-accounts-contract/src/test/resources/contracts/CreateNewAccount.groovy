@@ -18,8 +18,5 @@ Contract.make {
     }
     response {
         status 201
-        headers {
-            header("Location", $(producer(regex('.+/accounts/\\d+'))))
-        }
     }
 }

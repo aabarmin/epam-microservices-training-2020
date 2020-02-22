@@ -18,5 +18,8 @@ Contract.make {
                         "size": $(producer(regex('\\d+')))
                 ]
         ])
+        headers {
+            contentType('application/json')
+        }
     }
 }
