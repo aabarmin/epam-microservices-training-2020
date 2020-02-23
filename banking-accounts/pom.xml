@@ -89,24 +89,32 @@
         </dependency>
     </dependencies>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-contract-maven-plugin</artifactId>
-                <version>2.2.1.RELEASE</version>
-                <extensions>true</extensions>
-                <configuration>
-                    <baseClassForTests>com.epam.training.microservices.banking.BaseTestClass</baseClassForTests>
-                    <testFramework>JUNIT5</testFramework>
-                    <contractsMode>LOCAL</contractsMode>
-                    <contractDependency>
-                        <groupId>com.epam.training.microservices</groupId>
-                        <artifactId>banking-accounts-contract</artifactId>
-                        <classifier>stubs</classifier>
-                    </contractDependency>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
+    <profiles>
+        <profile>
+            <id>contract-test</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.springframework.cloud</groupId>
+                        <artifactId>spring-cloud-contract-maven-plugin</artifactId>
+                        <version>2.2.1.RELEASE</version>
+                        <extensions>true</extensions>
+                        <configuration>
+                            <baseClassForTests>com.epam.training.microservices.banking.BaseTestClass</baseClassForTests>
+                            <testFramework>JUNIT5</testFramework>
+                            <contractsMode>LOCAL</contractsMode>
+                            <contractDependency>
+                                <groupId>com.epam.training.microservices</groupId>
+                                <artifactId>banking-accounts-contract</artifactId>
+                                <classifier>stubs</classifier>
+                            </contractDependency>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>

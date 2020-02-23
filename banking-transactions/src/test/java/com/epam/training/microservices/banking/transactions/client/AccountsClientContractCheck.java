@@ -24,7 +24,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
         ids = {"com.epam.training.microservices:banking-accounts-contract:+:stubs:8082"},
         stubsMode = StubRunnerProperties.StubsMode.LOCAL
 )
-class AccountsClientTest {
+class AccountsClientContractCheck {
 
   @Autowired
   private AccountsClient accountsClient;
