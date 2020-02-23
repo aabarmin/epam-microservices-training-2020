@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class TransactionsTestController {
   private final TransactionService transactionService;
 
-  @GetMapping("/transfer/{accountFromId}/{accountToId}/amount")
+  @GetMapping("/transfer/{accountFromId}/{accountToId}/{amount}")
   public void transfer(@PathVariable("accountFromId") Long accountFromId,
                        @PathVariable("accountToId") Long accountToId,
                        @PathVariable("amount") Long amount) {

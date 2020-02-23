@@ -20,6 +20,13 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>Hoxton.SR1</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -69,6 +76,45 @@
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-rest-hal-explorer</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-contract-verifier</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.epam.training.microservices</groupId>
+            <artifactId>banking-accounts-contract</artifactId>
+            <version>${project.version}</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 
+    <profiles>
+        <profile>
+            <id>contract-test</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.springframework.cloud</groupId>
+                        <artifactId>spring-cloud-contract-maven-plugin</artifactId>
+                        <version>2.2.1.RELEASE</version>
+                        <extensions>true</extensions>
+                        <configuration>
+                            <baseClassForTests>com.epam.training.microservices.banking.BaseTestClass</baseClassForTests>
+                            <testFramework>JUNIT5</testFramework>
+                            <contractsMode>LOCAL</contractsMode>
+                            <contractDependency>
+                                <groupId>com.epam.training.microservices</groupId>
+                                <artifactId>banking-accounts-contract</artifactId>
+                                <classifier>stubs</classifier>
+                            </contractDependency>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>

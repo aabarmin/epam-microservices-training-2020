@@ -21,6 +21,10 @@ following properties: card holder name, card number, validity date, secret code.
 better having these transactions asynchronous, so, there will be a module that will use other
 modules to process the data. 
 
+5. **Transactions logging** - this service should record all the executed transactions into the
+permanent storage for future usage during review and investigation sessions. All the transactions should be
+sent asynchronously using the message queue. 
+
 ## Tasks and statutes
 
 This list of features is not completed, I assume it'll be updated during the development but
@@ -36,6 +40,7 @@ Create a new multi-module Apache Maven project with the following modules:
 * banking-accounts - done
 * banking-cards - done
 * banking-transactions - in progress, transaction logging hasn't been implemented yet
+* banking-transactions-logging - not started
 
 ### Feature 2 - done
 
@@ -55,7 +60,7 @@ The following unit tests were implemented:
 
 * `TaxCalculator` to calculate amount with defined tax. 
 
-### Feature 4 - not started
+### Feature 4 - done
 
 * Spring-based JPA integration test. In this context it's necessary to show that
 every service has its own database and in order to test code without dependencty
@@ -64,7 +69,7 @@ mock this layer completely.
 
 * Specifying a contract between microservices using Spring Cloud Contract. This contract should
 be separated to its own maven module and should be used as a separated dependency to test if
-services that use this particular service could consume the contract. 
+services that use this particular service could consume the contract.  
 
 * Just an idea right now - generate something based on this contract, for example, REST API and 
 test it. 
@@ -87,7 +92,7 @@ images and `docker-compose.yml` to deploy everything at once.
 * End-to-end test for the whole system. Looks quite simple but it's better running these tests
 not only from the local environment but also from the CI. 
 
-### Feature 6 - done
+### Feature 7 - done
 
 Configure GitHub Actions to run all the necessary steps automatically every commit. 
   
