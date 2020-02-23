@@ -71,4 +71,44 @@
         </dependency>
     </dependencies>
 
+    <profiles>
+        <profile>
+            <id>integration-test</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <docker.buildArg.APP_NAME>${project.artifactId}-${project.version}.jar</docker.buildArg.APP_NAME>
+            </properties>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>io.fabric8</groupId>
+                        <artifactId>docker-maven-plugin</artifactId>
+                        <version>0.33.0</version>
+                        <configuration>
+                            <images>
+                                <image>
+                                    <name>epam-microservices/${project.artifactId}:${project.version}</name>
+                                    <alias>${project.artifactId}</alias>
+                                    <build>
+                                        <dockerFile>${project.basedir}/Dockerfile</dockerFile>
+                                    </build>
+                                </image>
+                            </images>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>build-container</id>
+                                <phase>pre-integration-test</phase>
+                                <goals>
+                                    <goal>build</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>
