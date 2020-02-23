@@ -60,7 +60,7 @@ The following unit tests were implemented:
 
 * `TaxCalculator` to calculate amount with defined tax. 
 
-### Feature 4 - in progress
+### Feature 4 - done
 
 * Spring-based JPA integration test. In this context it's necessary to show that
 every service has its own database and in order to test code without dependencty
