@@ -39,3 +39,4 @@ public class User {
   @Column(name = "USER_UPDATED_AT")
   private LocalDate updatedDate = LocalDate.now();
 }
+
