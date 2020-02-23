@@ -1,0 +1,16 @@
+version: "2"
+
+services:
+  banking-accounts:
+    image: epam-microservices/banking-accounts:latest
+
+  banking-cards:
+    image: epam-microservices/banking-cards:latest
+
+  banking-users:
+    image: epam-microservices/banking-users:latest
+
+  banking-transactions:
+    image: epam-microservices/banking-transactions:latest
+    ports:
+    - 8080:8080

@@ -47,12 +47,6 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-spring</artifactId>
-            <version>${cucumber.java.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
             <groupId>org.hamcrest</groupId>
             <artifactId>hamcrest-all</artifactId>
             <version>1.3</version>
@@ -60,29 +54,35 @@
         </dependency>
 
         <dependency>
-            <groupId>com.epam.training.microservices</groupId>
-            <artifactId>banking-accounts</artifactId>
-            <version>${project.version}</version>
-            <scope>compile</scope>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
         </dependency>
-        <dependency>
-            <groupId>com.epam.training.microservices</groupId>
-            <artifactId>banking-cards</artifactId>
-            <version>${project.version}</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.epam.training.microservices</groupId>
-            <artifactId>banking-users</artifactId>
-            <version>${project.version}</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.epam.training.microservices</groupId>
-            <artifactId>banking-transactions</artifactId>
-            <version>${project.version}</version>
-            <scope>compile</scope>
-        </dependency>
+
+<!--        <dependency>-->
+<!--            <groupId>com.epam.training.microservices</groupId>-->
+<!--            <artifactId>banking-accounts</artifactId>-->
+<!--            <version>${project.version}</version>-->
+<!--            <scope>compile</scope>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>com.epam.training.microservices</groupId>-->
+<!--            <artifactId>banking-cards</artifactId>-->
+<!--            <version>${project.version}</version>-->
+<!--            <scope>compile</scope>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>com.epam.training.microservices</groupId>-->
+<!--            <artifactId>banking-users</artifactId>-->
+<!--            <version>${project.version}</version>-->
+<!--            <scope>compile</scope>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>com.epam.training.microservices</groupId>-->
+<!--            <artifactId>banking-transactions</artifactId>-->
+<!--            <version>${project.version}</version>-->
+<!--            <scope>compile</scope>-->
+<!--        </dependency>-->
     </dependencies>
 
     <profiles>
@@ -91,6 +91,89 @@
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
+            <properties>
+
+            </properties>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-failsafe-plugin</artifactId>
+                        <version>3.0.0-M4</version>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>integration-test</goal>
+                                    <goal>verify</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>io.fabric8</groupId>
+                        <artifactId>docker-maven-plugin</artifactId>
+                        <version>0.33.0</version>
+                        <configuration>
+                            <images>
+                                <image>
+                                    <name>epam-microservices/banking-transactions:latest</name>
+                                    <run>
+                                        <wait>
+                                            <http>
+                                                <url>http://localhost:8080/</url>
+                                                <method>GET</method>
+                                                <status>200</status>
+                                            </http>
+                                            <time>180000</time>
+                                        </wait>
+                                        <ports>
+                                            <port>8080:8080</port>
+                                        </ports>
+                                    </run>
+                                </image>
+                                <image>
+                                    <name>epam-microservices/banking-accounts:latest</name>
+                                    <run>
+                                        <wait>
+                                            <http>
+                                                <url>http://localhost:8081/</url>
+                                                <method>GET</method>
+                                                <status>200</status>
+                                            </http>
+                                            <time>180000</time>
+                                        </wait>
+                                        <ports>
+                                            <port>8081:8081</port>
+                                        </ports>
+                                    </run>
+                                </image>
+                                <image>
+                                    <name>epam-microservices/banking-users:latest</name>
+                                </image>
+                                <image>
+                                    <name>epam-microservices/banking-cards:latest</name>
+                                </image>
+                            </images>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>start-containers</id>
+                                <phase>pre-integration-test</phase>
+                                <goals>
+                                    <goal>start</goal>
+                                </goals>
+                            </execution>
+                            <execution>
+                                <id>stop-containers</id>
+                                <phase>post-integration-test</phase>
+                                <goals>
+                                    <goal>stop</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
         </profile>
     </profiles>
 </project>

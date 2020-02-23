@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/transactions")
-public class TransactionsTestController {
+public class TransactionsController {
   private final TransactionService transactionService;
 
   @GetMapping("/transfer/{accountFromId}/{accountToId}/{amount}")
@@ -19,5 +19,12 @@ public class TransactionsTestController {
                        @PathVariable("amount") Long amount) {
 
     transactionService.transfer(accountFromId, accountToId, amount);
+  }
+
+  @GetMapping("/deposit/{accountId}/{amount}")
+  public void deposit(@PathVariable("accountId") Long accountId,
+                      @PathVariable("amount") Long amount) {
+
+    transactionService.deposit(accountId, amount);
   }
 }
