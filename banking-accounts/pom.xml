@@ -123,6 +123,8 @@
                             <baseClassForTests>com.epam.training.microservices.banking.BaseTestClass</baseClassForTests>
                             <testFramework>JUNIT5</testFramework>
                             <contractsMode>LOCAL</contractsMode>
+                            <contractsPath>com.epam.training.microservices/banking-accounts-contract</contractsPath>
+                            <basePackageForTests>contract.test</basePackageForTests>
                             <contractDependency>
                                 <groupId>com.epam.training.microservices</groupId>
                                 <artifactId>banking-accounts-contract</artifactId>

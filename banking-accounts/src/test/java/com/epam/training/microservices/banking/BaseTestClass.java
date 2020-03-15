@@ -1,5 +1,6 @@
 package com.epam.training.microservices.banking;
 
+import com.epam.training.microservices.banking.accounts.AccountsApplication;
 import com.epam.training.microservices.banking.accounts.repository.AccountRepository;
 import io.restassured.module.mockmvc.RestAssuredMockMvc;
 import org.junit.jupiter.api.BeforeEach;
@@ -12,7 +13,10 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.web.context.WebApplicationContext;
 
 @ExtendWith(SpringExtension.class)
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.MOCK)
+@SpringBootTest(
+        webEnvironment = SpringBootTest.WebEnvironment.MOCK,
+        classes = AccountsApplication.class
+)
 @DirtiesContext
 @AutoConfigureMessageVerifier
 public class BaseTestClass {
