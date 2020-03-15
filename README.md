@@ -32,15 +32,14 @@ for now it could be considered as a starting point.
 
 Development is expected to be going in separated branches using the GitFlow strategy. 
 
-### Feature 1 - in progress
+### Feature 1 - done
 
 Create a new multi-module Apache Maven project with the following modules:
 
 * banking-users - done
 * banking-accounts - done
 * banking-cards - done
-* banking-transactions - in progress, transaction logging hasn't been implemented yet
-* banking-transactions-logging - not started
+* banking-transactions - done
 
 ### Feature 2 - done
 
@@ -83,7 +82,7 @@ It will be an end-to-end test that is described using Gherkin language and ran u
 In this particular case the one single service will be checked using this test, all other services
 will be mocked using described contracts. 
 
-### Feature 6 - in progress
+### Feature 6 - done
 
 * First part of this feature is to build all service and pack them into docker containers. More
 likely it'll be necessary having some infrastructure to deal with it - Docker Registry to store
