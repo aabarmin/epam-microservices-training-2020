@@ -18,5 +18,6 @@
     <module>banking-cards</module>
     <module>banking-transactions</module>
     <module>banking-accounts-contract</module>
+    <module>banking-integration-test</module>
   </modules>
 </project>

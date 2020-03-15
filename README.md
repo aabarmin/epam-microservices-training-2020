@@ -77,13 +77,13 @@ test it.
 * Just an idea right now - generate something based on this contract that consumes this contract
 in asynchronous way, for example, something that will use a message queue to process data.
 
-### Feature 5 - not started
+### Feature 5 - done
 
 It will be an end-to-end test that is described using Gherkin language and ran using Cucumber. 
 In this particular case the one single service will be checked using this test, all other services
 will be mocked using described contracts. 
 
-### Feature 6 - not started
+### Feature 6 - in progress
 
 * First part of this feature is to build all service and pack them into docker containers. More
 likely it'll be necessary having some infrastructure to deal with it - Docker Registry to store

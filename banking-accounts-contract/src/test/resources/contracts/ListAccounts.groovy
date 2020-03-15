@@ -19,7 +19,7 @@ Contract.make {
                 ]
         ])
         headers {
-            contentType('application/json')
+            contentType('application/hal+json')
         }
     }
 }

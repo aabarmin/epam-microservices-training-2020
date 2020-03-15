@@ -59,26 +59,6 @@
                         </executions>
                     </plugin>
                     <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-assembly-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>stub</id>
-                                <phase>prepare-package</phase>
-                                <goals>
-                                    <goal>single</goal>
-                                </goals>
-                                <inherited>false</inherited>
-                                <configuration>
-                                    <attach>true</attach>
-                                    <descriptors>
-                                        ${basedir}/src/assembly/stub.xml
-                                    </descriptors>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <plugin>
                         <groupId>org.springframework.cloud</groupId>
                         <artifactId>spring-cloud-contract-maven-plugin</artifactId>
                         <version>2.2.1.RELEASE</version>
