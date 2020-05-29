@@ -19,5 +19,6 @@
     <module>banking-transactions</module>
     <module>banking-accounts-contract</module>
     <module>banking-integration-test</module>
+    <module>junit-examples</module>
   </modules>
 </project>
