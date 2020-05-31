@@ -19,16 +19,12 @@ jobs:
         with:
           ref: ${{github.base_ref}}
 
-      - name: Pull repository
+      - name: Pull all other branches
         run: git fetch
         shell: bash
 
       - name: Checkout the source branch
         run: git checkout --track origin/${{github.head_ref}}
-
-      - name: Display source branch
-        run: git branch
-        shell: bash
 
       - name: Merge with the target branch
         run: git merge ${{github.base_ref}}
