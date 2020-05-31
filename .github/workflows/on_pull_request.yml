@@ -19,14 +19,12 @@ jobs:
         with:
           ref: ${{github.base_ref}}
 
-      - name: Display target branch
-        run: git branch
+      - name: Pull repository
+        run: git fetch
         shell: bash
 
       - name: Checkout the source branch
-        uses: actions/checkout@v2
-        with:
-          ref: ${{github.head_ref}}
+        run: git checkout --track origin/${{github.head_ref}}
 
       - name: Display source branch
         run: git branch
