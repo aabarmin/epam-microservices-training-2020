@@ -19,7 +19,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Merger with master
-        run: git merge master
+        run: git branch
         shell: bash
 
       - name: Build with Maven
