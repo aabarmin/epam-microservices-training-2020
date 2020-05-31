@@ -1,6 +1,9 @@
 name: Run all the tests
 
-on: [push]
+on:
+  push:
+    branches:
+      - master
 
 jobs:
   build:
