@@ -16,10 +16,8 @@ jobs:
 
       - name: Checkout the code
         uses: actions/checkout@v2
-
-      - name: Checkout to the current branch
-        run: git checkout --track origin/${{github.head_ref}}
-        shell: bash
+        with:
+          ref: ${{github.head_ref}}
 
       - name: Merge with the target branch
         run: git merge ${{github.base_ref}}
