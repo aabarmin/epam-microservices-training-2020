@@ -15,7 +15,7 @@ import static org.powermock.api.mockito.PowerMockito.when;
 
 @RunWith(PowerMockRunner.class)
 @PrepareForTest({PostFactory.class, CommentUtils.class})
-public class PostFactoryTest {
+public class PostFactoryPowerMockTest {
   private PostFactory unitUnderTest;
 
   @Before
