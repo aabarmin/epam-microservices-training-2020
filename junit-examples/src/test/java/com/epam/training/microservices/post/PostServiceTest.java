@@ -1,24 +1,22 @@
 package com.epam.training.microservices.post;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Matchers.any;
-import static org.mockito.Matchers.anyInt;
-import static org.mockito.Matchers.anyString;
-import static org.mockito.Mockito.inOrder;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-
-import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;
 import org.mockito.InOrder;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.mockito.junit.MockitoJUnitRunner;
+
+import java.util.Collections;
+import java.util.List;
+import java.util.Optional;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Matchers.any;
+import static org.mockito.Matchers.anyInt;
+import static org.mockito.Matchers.anyString;
+import static org.mockito.Mockito.*;
 
 @RunWith(MockitoJUnitRunner.class)
 public class PostServiceTest {
@@ -49,7 +47,7 @@ public class PostServiceTest {
   @Test
   public void findOne_computeReturnValue() {
     when(postRepository.findById(anyInt())).thenAnswer(invocationOnMock -> {
-      final Integer id = invocationOnMock.getArgumentAt(0, Integer.class);
+      final Integer id = invocationOnMock.getArgument(0);
 
       final Post post = new Post();
       post.setId(id);
@@ -90,6 +88,7 @@ public class PostServiceTest {
   @Test
   public void save_captureOrder() {
     final Post post = new Post();
+    post.setContent("Content");
 
     unitUnderTest.save(post);
 
