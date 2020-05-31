@@ -19,6 +19,10 @@ jobs:
         with:
           ref: ${{github.head_ref}}
 
+      - name: Display current branch
+        run: git branch
+        shell: bash
+
       - name: Merge with the target branch
         run: git merge ${{github.base_ref}}
         shell: bash
