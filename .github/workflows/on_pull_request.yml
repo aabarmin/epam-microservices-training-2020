@@ -17,8 +17,12 @@ jobs:
       - name: Checkout the code
         uses: actions/checkout@v2
 
-      - name: Merger with master
-        run: echo ${{github.head_ref}}
+      - name: Checkout to the current branch
+        run: git checkout ${{github.head_ref}}
+        shell: bash
+
+      - name: Merge with the target branch
+        run: git merge ${{github.base_ref}}
         shell: bash
 
       - name: Build with Maven
