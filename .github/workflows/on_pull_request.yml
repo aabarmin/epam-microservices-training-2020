@@ -41,3 +41,8 @@ jobs:
       - name: Build with Maven
         run: mvn -B clean verify -P !contract-test --file pom.xml
 
+      - name: Publish Code Coverage report
+        uses: actions/upload-artifact@v2
+        with:
+          name: Code Coverage report
+          path: coverage-report/target/site/jacoco-aggregate/
