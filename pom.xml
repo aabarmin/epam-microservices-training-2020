@@ -18,10 +18,21 @@
     <module>banking-cards</module>
     <module>banking-transactions</module>
     <module>banking-accounts-contract</module>
-    <module>banking-integration-test</module>
     <module>junit-examples</module>
     <module>coverage-report</module>
   </modules>
+
+  <profiles>
+    <profile>
+      <id>integration-tests</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <modules>
+        <module>banking-integration-test</module>
+      </modules>
+    </profile>
+  </profiles>
 
   <build>
     <plugins>
