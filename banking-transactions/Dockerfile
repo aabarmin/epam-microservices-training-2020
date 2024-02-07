@@ -1,4 +1,4 @@
-FROM java:8
+FROM openjdk:11
 
 ARG APP_NAME
 EXPOSE 8080
