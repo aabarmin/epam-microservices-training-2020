@@ -23,7 +23,7 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Hoxton.SR1</version>
+                <version>Hoxton.SR10</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -148,7 +148,7 @@
                     <plugin>
                         <groupId>io.fabric8</groupId>
                         <artifactId>docker-maven-plugin</artifactId>
-                        <version>0.33.0</version>
+                        <version>0.44.0</version>
                         <configuration>
                             <images>
                                 <image>
